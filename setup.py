@@ -17,6 +17,7 @@ setup(
   packages=["pickle_spree"],
   setup_requires=[],
   install_requires=[
+    "dill",
     "imphook",
   ],
   extras_require={

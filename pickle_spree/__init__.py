@@ -1,9 +1,9 @@
 from collections.abc import Callable
 from collections import ChainMap
 from contextlib import contextmanager
+import dill as pickle # noqa
 from dataclasses import dataclass
 from pathlib import Path
-import pickle
 from subprocess import Popen
 import sys
 from tempfile import NamedTemporaryFile
