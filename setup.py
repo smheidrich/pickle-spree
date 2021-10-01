@@ -24,6 +24,7 @@ setup(
       "altered-states",
       "pytest",
       "pytest-cov",
+      "pytest-datadir",
       "pytest-venv",
       "codecov",
       "sybil",
