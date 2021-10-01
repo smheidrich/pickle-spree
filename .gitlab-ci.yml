@@ -1,0 +1,21 @@
+image: "python:3.9"
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+
+pytest:
+  image: $IMAGE
+  parallel:
+    matrix:
+      - IMAGE: ['python:3.9']
+  stage: test
+  before_script:
+    - pip install -e .[tests]
+  script:
+    - pytest --cov=pickle_spree tests/
+  after_script:
+    - bash <(curl -s https://codecov.io/bash)'
