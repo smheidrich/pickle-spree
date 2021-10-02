@@ -77,8 +77,8 @@ if __name__ == "__main__":
   output_from_file = Path("output.txt").read_text()
   print(f"output found in output.txt: {output_from_file}") # 'Hello world'
 
-# undo monkeypatching (again, better use something like altered-states)
-subprocess.Popen = old_popen
+  # undo monkeypatching (again, better use something like altered-states)
+  subprocess.Popen = old_popen
 ```
 
 
