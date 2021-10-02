@@ -14,8 +14,8 @@ executed is a Python process; if so, it [pickles][pickle]<sup>2</sup> a given
 callable, then loads and runs it inside the child Python before any other code
 is executed in it.
 
-<sup>1</sup> And other parts of `subprocess` that use `Popen` internally, such
-as [`run`][run].
+<sup>1</sup> And thereby other parts of `subprocess` that use `Popen`
+internally, such as [`run`][run].
 
 <sup>2</sup> Actually [dilled][dill] to handle some [edge cases][GH1] better.
 
