@@ -1,5 +1,8 @@
 # pickle-spree
 
+[![pipeline status](https://gitlab.com/smheidrich/pickle-spree/badges/main/pipeline.svg?style=flat-square)](https://gitlab.com/smheidrich/pickle-spree/-/commits/main)
+[![codecov](https://img.shields.io/codecov/c/gl/smheidrich/pickle-spree?style=flat-square&token=OIHAYW5MD8)](https://codecov.io/gl/smheidrich/pickle-spree)
+
 **Pre-load and run pickled callables in Python subprocesses**
 
 
