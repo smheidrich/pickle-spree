@@ -4,7 +4,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-class SysStdoutRedirectingCallable:
+class SysStdoutRedirectingPatch:
   """
   Callable that patches sys.stdout to redirect writes to the given file
   """
@@ -18,12 +18,12 @@ class SysStdoutRedirectingCallable:
     import sys
     sys.stdout.write = redirected_write
 
-callable = SysStdoutRedirectingCallable("output.txt")
+patch = SysStdoutRedirectingPatch("output.txt")
 Path("output.txt").unlink(missing_ok=True) # delete previous output file
 
 # construct Popen replacement and tell it which callable to pickle for loading
 # and execution in the Python subprocess
-new_popen = PopenFactory(callable=callable, pickled_path="dbg.pickle")
+new_popen = PopenFactory(callable=patch, pickled_path="dbg.pickle")
 
 # manually monkeypatch subprocess.Popen; for greater convenience, you could use
 # a library like https://github.com/Plexical/altered.states
