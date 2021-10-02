@@ -28,7 +28,6 @@ setup(
       "pytest-datadir",
       "pytest-venv",
       "codecov",
-      "sybil",
     ],
   },
 )
