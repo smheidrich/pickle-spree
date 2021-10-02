@@ -16,6 +16,7 @@ is executed in it.
 
 <sup>1</sup> And other parts of `subprocess` that use `Popen` internally, such
 as [`run`][run].
+
 <sup>2</sup> Actually [dilled][dill] to handle some [edge cases][GH1] better.
 
 
