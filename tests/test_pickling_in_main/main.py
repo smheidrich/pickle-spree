@@ -18,7 +18,8 @@ subprocess.Popen = new_popen
 pythonpaths = os.environ.get("PYTHONPATH", "").split(":")
 pythonpath = ":".join([str(Path(__file__).parent.absolute())]+pythonpaths)
 
-Path("child_script.py").write_text("print('foo')")
+if __name__ == "__main__":
+  Path("child_script.py").write_text("print('foo')")
 
-subprocess.run([sys.executable, "child_script.py"],
-  env=ChainMap({"PYTHONPATH": pythonpath}, os.environ), check=True)
+  subprocess.run([sys.executable, "child_script.py"],
+    env=ChainMap({"PYTHONPATH": pythonpath}, os.environ), check=True)
