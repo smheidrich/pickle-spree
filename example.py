@@ -18,19 +18,19 @@ class SysStdoutRedirectingPatch:
     import sys
     sys.stdout.write = redirected_write
 
-patch = SysStdoutRedirectingPatch("output.txt")
-Path("output.txt").unlink(missing_ok=True) # delete previous output file
-
-# construct Popen replacement and tell it which callable to pickle for loading
-# and execution in the Python subprocess
-new_popen = PopenFactory(callable=patch, pickled_path="dbg.pickle")
-
-# manually monkeypatch subprocess.Popen; for greater convenience, you could use
-# a library like https://github.com/Plexical/altered.states
-old_popen = subprocess.Popen
-subprocess.Popen = new_popen
-
 if __name__ == "__main__":
+  patch = SysStdoutRedirectingPatch("output.txt")
+  Path("output.txt").unlink(missing_ok=True) # delete previous output file
+
+  # construct Popen replacement and tell it which callable to pickle for
+  # loading and execution in the Python subprocess
+  new_popen = PopenFactory(callable=patch, pickled_path="dbg.pickle")
+
+  # manually monkeypatch subprocess.Popen; for greater convenience, you could
+  # use a library like https://github.com/Plexical/altered.states
+  old_popen = subprocess.Popen
+  subprocess.Popen = new_popen
+
   # write script to run in child Python subprocess
   Path("child_script.py").write_text("print('Hello world')")
 
